@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import simboloMais from './assets/mais.png'
+import Filtro from './components/Filtro/filtro';
+import Lista from './components/Lista/lista';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='divPrincipal'>
+      <div>
+        <h1 className='titulo'>
+          Livro de receitas Online
+        </h1>
+      </div>
+      <div className='divBody'>
+        <Filtro />
+        <Lista />
+        <a href='#'>
+          <img src={simboloMais} alt='Simbolo de Adicionar' ></img>
+          </a>
+      </div>
     </div>
   );
 }
