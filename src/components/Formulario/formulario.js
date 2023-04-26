@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Formulario = () => {
+const Formulario = props => {
     
     const [receita, setReceita] = useState({});
     const [prevFormData, setPrevFormData] = useState([]);
@@ -43,6 +43,9 @@ const Formulario = () => {
             ...receita,
             gluten: e.target.checked? true : false
         })
+    }
+    const handleCancel = () => {
+        props.updateAberto(false);
     }
 
     return (
@@ -87,7 +90,7 @@ const Formulario = () => {
             <button type="submit" className="btn">
                 Adicionar
             </button>
-            <button className="btn">
+            <button className="btn" onClick={() => {handleCancel()}}>
                 Cancelar
             </button>
         </form>

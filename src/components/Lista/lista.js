@@ -8,7 +8,7 @@ const Lista = props =>{
         <div>
             <h2>Receitas cadastradas: </h2>
             <div>
-             {receitas && receitas.map(receita=> <ItemLista receita={receita} key={receita.nome}/> )}
+             {receitas.map(receita=> <ItemLista receita={receita} key={receita.nome}/> )}
                 </div>
         </div>
     )

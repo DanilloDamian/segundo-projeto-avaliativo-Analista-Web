@@ -26,3 +26,11 @@
   color: black;
   padding: 2em
 }
+.btn{
+  background-color: transparent;
+  border: none
+}
+.itemLista{
+  display: flex;
+  font-size: 1.5em
+}

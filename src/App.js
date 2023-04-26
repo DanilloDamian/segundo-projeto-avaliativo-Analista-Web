@@ -11,18 +11,33 @@ const [receitas, setReceitas] = useState([]);
 const [lactose, setLactose] = useState(false);
 const [gluten, setGluten] = useState(false);
 const [receitasSelecionadas, setReceitasSelecionadas] = useState([]);
+const [aberto, setAberto] = useState(false);
 
 useEffect(()=>{
   const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')) : [];
   setReceitas(data);  
-  setReceitasSelecionadas(data)
+  setReceitasSelecionadas(data);  
 },[])
 
 const handleFiltro = () => {
-    const selected = receitas.filter(receita => receita.lactose === lactose && receita.gluten === gluten);
-   setReceitasSelecionadas(selected);
+  const selected = receitas.filter(receita => receita.lactose === lactose && receita.gluten === gluten);
+  setReceitasSelecionadas(selected);
 }
-console.log(receitasSelecionadas)
+
+const handleLactose = value =>{
+  setLactose(value);
+  handleFiltro();
+}
+const handleGluten = value =>{
+  setGluten(value);
+  handleFiltro();
+}
+
+const updateAberto = valor => {
+  setAberto(valor);
+}
+
+
   return (
     <div className='divPrincipal'>
       <div>
@@ -30,14 +45,19 @@ console.log(receitasSelecionadas)
           Livro de receitas Online
         </h1>
       </div>
+      {!aberto && 
       <div className='divBody'>
-        <Filtro />
+      
+      
+        <Filtro handleLactose={handleLactose} handleGluten={handleGluten}/>
         <Lista receitas={receitasSelecionadas}/>
-        <a href='#'>
+        <a onClick={()=>{setAberto(true)}}>
           <img src={simboloMais} alt='Simbolo de Adicionar' ></img>
           </a>
-      </div>
-      <Formulario/>
+          </div>
+  }
+      
+      { aberto && <Formulario updateAberto={updateAberto} aberto={aberto}/>}
     </div>
   );
 }
