@@ -3,25 +3,47 @@ import { useEffect, useState } from "react";
 const Formulario = props => {
     
     const [receita, setReceita] = useState({});
-    const [prevFormData, setPrevFormData] = useState([]);
+    const [form, setForm] = useState([]);
+    const [receitaParaAlterar, setReceitaParaAlterar] = useState();
+    
     
     useEffect(()=>{
-        const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')):[];
-        setPrevFormData(data)
+       const receitaParaAlterar = JSON.parse(localStorage.getItem('receitaSelecionada'));
+        
+        if(receitaParaAlterar){
+            setReceita(receitaParaAlterar)
+            setReceitaParaAlterar(receitaParaAlterar)
+            setForm(receitaParaAlterar) 
+        }else{
+            const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')):[];
+            setForm(data)
+        }
     },[])
 
-    const handleSubmit = e =>{
-        e.preventDefault();
+   
 
+    const handleSubmit = e =>{
+        e.preventDefault();        
+        
+        
+        let array = [];
+        
         const receitaData = receita;
 
         if(!('lactose' in receita)){
             receitaData.lactose = false;
-        }
+        }else{receitaData.lactose = true}
         if(!('gluten' in receita)){
             receitaData.gluten = false;
+        }else{
+            receitaData.gluten = true
         }
-        localStorage.setItem('receita', JSON.stringify([...prevFormData,receitaData]));
+        array= [...form, receitaData];
+        
+        localStorage.removeItem('receitaSelecionada');
+        localStorage.setItem('receita', JSON.stringify(array));
+        props.updateAberto(false);
+        
        
     }
     
@@ -54,7 +76,7 @@ const Formulario = props => {
             <div>
                 <label>
                     Nome:
-                    <input type="text" name="nome" onChange={e => handleChange(e)} value={receita.nome} required></input>
+                    <input type="text" name="nome" onChange={e => handleChange(e)} value={receita.nome} required/>
                 </label>
             </div>
             <div>
@@ -88,7 +110,7 @@ const Formulario = props => {
             </div>
 
             <button type="submit" className="btn">
-                Adicionar
+                {receitaParaAlterar? "Atualizar": "Adicionar"}
             </button>
             <button className="btn" onClick={() => {handleCancel()}}>
                 Cancelar
