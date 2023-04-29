@@ -5,17 +5,17 @@ const Formulario = props => {
     const [receita, setReceita] = useState({});
     const [form, setForm] = useState([]);
     const [receitaParaAlterar, setReceitaParaAlterar] = useState();
-    
+    const lista = props.receitas;
     
     useEffect(()=>{
        const receitaParaAlterar = JSON.parse(localStorage.getItem('receitaSelecionada'));
+       const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')):[];
         
         if(receitaParaAlterar){
             setReceita(receitaParaAlterar)
             setReceitaParaAlterar(receitaParaAlterar)
             setForm(receitaParaAlterar) 
         }else{
-            const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')):[];
             setForm(data)
         }
     },[])
@@ -31,19 +31,30 @@ const Formulario = props => {
         const receitaData = receita;
 
         if(!('lactose' in receita)){
-            receitaData.lactose = false;
-        }else{receitaData.lactose = true}
-        if(!('gluten' in receita)){
-            receitaData.gluten = false;
-        }else{
-            receitaData.gluten = true
+                receitaData.lactose = false;
         }
-        array= [...form, receitaData];
-        
+        if(!('gluten' in receita)){
+             receitaData.gluten = false;
+        }
+
+        if(receitaParaAlterar){
+            const updatedReceita = lista.map(receita => {
+                if(JSON.stringify(receita) === JSON.stringify(receitaParaAlterar)){
+                    return receitaData;
+                }else{
+                    return receita
+                }
+            });
+            array = updatedReceita;
+        }else{
+            
+            array= [...lista, receitaData];
+        }
+
         localStorage.removeItem('receitaSelecionada');
         localStorage.setItem('receita', JSON.stringify(array));
         props.updateAberto(false);
-        
+        props.updateLista(lista)
        
     }
     
@@ -63,11 +74,12 @@ const Formulario = props => {
     const handleGluten = e =>{
         setReceita({
             ...receita,
-            gluten: e.target.checked? true : false
+            gluten: e.target.checked ? true : false
         })
     }
     const handleCancel = () => {
         props.updateAberto(false);
+        localStorage.removeItem('receitaSelecionada');
     }
 
     return (
@@ -88,14 +100,13 @@ const Formulario = props => {
                 </label>
             </div>
             <div>
-
                 <label>
                     Modo de preparo:
                     <textarea name="preparo" onChange={e => handleChange(e)} value={receita.preparo} required>
                     </textarea>
                 </label>
             </div>
-            <div>
+            
                 <div className="restricoes">
                     <h3>Restrições</h3>
                     <label>
@@ -107,7 +118,7 @@ const Formulario = props => {
                         <input type="checkbox" name="gluten" onChange={e => handleGluten(e)} value={receita.gluten}></input>
                     </label>
                 </div>
-            </div>
+           
 
             <button type="submit" className="btn">
                 {receitaParaAlterar? "Atualizar": "Adicionar"}

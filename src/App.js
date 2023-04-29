@@ -44,6 +44,9 @@ const handleGluten = value =>{
 const updateAberto = valor => {
   setAberto(valor);
 }
+const updateLista = valor =>{
+  setReceitasSelecionadas(valor);  
+}
 
 
 
@@ -66,7 +69,7 @@ const updateAberto = valor => {
           </div>
   }
       
-      { aberto && <Formulario updateAberto={updateAberto} aberto={aberto} receita={receitaParaAlterar} receitas={receitas}/>}
+      { aberto && <Formulario updateAberto={updateAberto} aberto={aberto} receita={receitaParaAlterar} updateLista={updateLista} receitas={receitas}/>}
     </div>
   );
 }
