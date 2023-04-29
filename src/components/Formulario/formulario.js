@@ -5,18 +5,16 @@ const Formulario = props => {
     const [receita, setReceita] = useState({});
     const [form, setForm] = useState([]);
     const [receitaParaAlterar, setReceitaParaAlterar] = useState();
-    const lista = props.receitas;
+    
     
     useEffect(()=>{
        const receitaParaAlterar = JSON.parse(localStorage.getItem('receitaSelecionada'));
        const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')):[];
-        
+       setForm(data);
+
         if(receitaParaAlterar){
             setReceita(receitaParaAlterar)
-            setReceitaParaAlterar(receitaParaAlterar)
-            setForm(receitaParaAlterar) 
-        }else{
-            setForm(data)
+            setReceitaParaAlterar(receitaParaAlterar)             
         }
     },[])
 
@@ -38,7 +36,7 @@ const Formulario = props => {
         }
 
         if(receitaParaAlterar){
-            const updatedReceita = lista.map(receita => {
+            const updatedReceita = form.map(receita => {
                 if(JSON.stringify(receita) === JSON.stringify(receitaParaAlterar)){
                     return receitaData;
                 }else{
@@ -48,13 +46,13 @@ const Formulario = props => {
             array = updatedReceita;
         }else{
             
-            array= [...lista, receitaData];
+            array= [...form, receitaData];
         }
 
-        localStorage.removeItem('receitaSelecionada');
         localStorage.setItem('receita', JSON.stringify(array));
+        localStorage.removeItem('receitaSelecionada');
         props.updateAberto(false);
-        props.updateLista(lista)
+        props.updateLista(form)
        
     }
     
@@ -80,6 +78,15 @@ const Formulario = props => {
     const handleCancel = () => {
         props.updateAberto(false);
         localStorage.removeItem('receitaSelecionada');
+    }
+
+    const removeReceita = receitaParaexcluir =>{
+        const receitaIndex = form.findIndex(receita => JSON.stringify(receita) === JSON.stringify(receitaParaexcluir));
+        form.splice(receitaIndex,1);
+        localStorage.setItem('receita', JSON.stringify(form));
+        props.updateAberto(false);
+        localStorage.removeItem('receitaSelecionada');
+
     }
 
     return (
@@ -123,6 +130,7 @@ const Formulario = props => {
             <button type="submit" className="btn">
                 {receitaParaAlterar? "Atualizar": "Adicionar"}
             </button>
+            {receitaParaAlterar && <button onClick={e => {e.preventDefault(); removeReceita(receitaParaAlterar)}} className="btn">Excluir</button>}
             <button className="btn" onClick={() => {handleCancel()}}>
                 Cancelar
             </button>
