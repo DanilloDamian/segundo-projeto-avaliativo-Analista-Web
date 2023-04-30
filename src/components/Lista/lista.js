@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import ItemLista from "./itemLista";
 
 const Lista = props =>{
-   const receitas= JSON.parse(localStorage.getItem('receita'))
+    const [receitas,setReceitas] = useState([]);
+    
+    useEffect(()=>{
+        setReceitas(props.receitas);
+    });
+    
        
     return(
         <div>

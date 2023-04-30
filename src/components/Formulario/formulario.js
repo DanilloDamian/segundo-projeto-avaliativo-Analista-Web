@@ -22,10 +22,7 @@ const Formulario = props => {
 
     const handleSubmit = e =>{
         e.preventDefault();        
-        
-        
         let array = [];
-        
         const receitaData = receita;
 
         if(!('lactose' in receita)){
@@ -52,8 +49,7 @@ const Formulario = props => {
         localStorage.setItem('receita', JSON.stringify(array));
         localStorage.removeItem('receitaSelecionada');
         props.updateAberto(false);
-        props.updateLista(form)
-       
+        props.updateLista(form)       
     }
     
     const handleChange = e => {
@@ -81,11 +77,13 @@ const Formulario = props => {
     }
 
     const removeReceita = receitaParaexcluir =>{
+        let confirma = window.confirm("Deseja realmente excluir?");
+        if(confirma){
         const receitaIndex = form.findIndex(receita => JSON.stringify(receita) === JSON.stringify(receitaParaexcluir));
         form.splice(receitaIndex,1);
         localStorage.setItem('receita', JSON.stringify(form));
         props.updateAberto(false);
-        localStorage.removeItem('receitaSelecionada');
+        localStorage.removeItem('receitaSelecionada');}
 
     }
 

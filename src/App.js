@@ -8,8 +8,6 @@ import Lista from './components/Lista/lista';
 
 function App() {
 const [receitas, setReceitas] = useState([]);
-const [lactose, setLactose] = useState(false);
-const [gluten, setGluten] = useState(false);
 const [receitasSelecionadas, setReceitasSelecionadas] = useState([]);
 const [aberto, setAberto] = useState(false);
 const [receitaParaAlterar, setReceitaParaAlterar] = useState({})
@@ -24,23 +22,12 @@ useEffect(()=>{
   }else{
     setReceitaParaAlterar('')
   }
-  
+ 
 },[])
 
-const handleFiltro = () => {
-  const selected = receitas.filter(receita => receita.lactose === lactose && receita.gluten === gluten);
-  setReceitasSelecionadas(selected);
+const handleFiltro = valor => {
+  setReceitasSelecionadas(valor);
 }
-
-const handleLactose = value =>{
-  setLactose(value);
-  handleFiltro();
-}
-const handleGluten = value =>{
-  setGluten(value);
-  handleFiltro();
-}
-
 const updateAberto = valor => {
   setAberto(valor);
 }
@@ -61,7 +48,7 @@ const updateLista = valor =>{
       <div className='divBody'>
       
       
-        <Filtro handleLactose={handleLactose} handleGluten={handleGluten}/>
+        <Filtro handleFiltro={handleFiltro} />
         <Lista receitas={receitasSelecionadas} updateAberto={updateAberto}/>
         <a onClick={()=>{setAberto(true); localStorage.removeItem('receitaSelecionada');}}>
           <img src={simboloMais} alt='Simbolo de Adicionar' ></img>
