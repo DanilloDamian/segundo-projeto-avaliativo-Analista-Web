@@ -5,67 +5,55 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: start;
-   
+    align-items: start;   
     margin-left: 8em;
     color: black;
-    padding: 1em;
-  
+    padding: 1em;  
 }
 .divForm{
     width: 100%;
-    height: 30px;
-    
+    height: 30px;    
 }
 .tituloForm{
     text-align: center;
-    margin: 0px;
-    
+    margin: 0px;    
 }
 .nomeForm{
     margin: 0.3em;
-    display:flex;
-   
-   align-items: center
+    display:flex;   
+    align-items: center;
 }
-
 .input{
     width:400px;
     height: 30px;
-    font-size: 1em
-}
-
-.tituloCheckbox{
-
-}
-.tituloRestricoes{
-
+    font-size: 1em;
 }
 .divBotoes{
     width: 100%;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;    
 }
-
 .textArea{
     width: 400px;
-    height:80px
+    height:80px;
 }
 .centralForm{
     display: flex;
     flex-direction: column;
     align-items: end;
-    font-size:1.3em
+    font-size:1.3em;
 }
 .restricoes{
     width:80%;
     display:flex;
-    justify-content: space-between
+    justify-content: space-between;
 }
 .divCheckbox{
-display:flex;
-justify-content:space-between;
-width: 15em
+    display:flex;
+    justify-content:space-between;
+    width: 15em;
 }
-
+.restricoes{
+    display: flex;
+    align-items: center;
+}

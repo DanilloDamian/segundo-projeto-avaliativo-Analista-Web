@@ -16,20 +16,18 @@
     color: black;
     text-align: center;
 }
-
 .items {
     margin: 2em;
 }
 .img-inf{
-    width: 2em
+    width: 2em;
 }
 .tituloReceita{
-    font-size:1.5em
+    font-size:1.5em;
 }
 .itemLista{
     display: flex;
     font-size: 1.5em;
     height: 3em;
-    align-items: center;
-    
-  }
+    align-items: center;    
+}
