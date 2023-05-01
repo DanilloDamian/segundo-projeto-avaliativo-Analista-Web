@@ -1,36 +1,58 @@
-.titulo{
-  font-size: 3em; 
+.divTitulo{
+  font-size: 1.5em; 
   display: flex; 
   flex-direction: column; 
-  align-items: center; 
-  margin-top: 1em
+  align-items: center;    
+  width:80%
+}
+.divTitulo>h1{
+  background-color: rgb(251, 255, 0);
+  padding: 0.5em;
+  border-radius: 40px;
+  border: 5px black solid
 }
 
 .divBody{
-  display: flex;  
+  display: flex;
+  display-direction: column;  
+  justify-content: space-around;
+  
 }
 .restricoes{
   display: flex;
   align-items: center
 }
-
-.formulario{
-  border: 1px solid black;
-  background-color: rgb(251, 255, 0,0.5);
-  border-radius: 50px;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin: auto;
-  color: black;
-  padding: 2em
+.checkbox{
+  width: 20px
 }
+
 .btn{
   background-color: transparent;
   border: none
 }
-.itemLista{
-  display: flex;
-  font-size: 1.5em
+.btnCLick{
+    margin: 5px;
+    items-align: center;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    height:3em;
+    width:14em;
+    font-size:0.7em;
+    font-weight: bold;
+}
+
+.link{
+  width: 7%;
+  align-self:end;
+  padding-right: 20em;
+  
+
+}
+.btnMais{
+  
+  width:100%
+}
+.simbolos{
+  width: 1.5em
 }

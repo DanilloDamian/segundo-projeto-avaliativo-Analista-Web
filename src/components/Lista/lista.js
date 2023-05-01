@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import ItemLista from "./itemLista";
+import './Lista.css';
+
 
 const Lista = props =>{
     const [receitas,setReceitas] = useState([]);
     
+
     useEffect(()=>{
         setReceitas(props.receitas);
+        
     });
     
        
     return(
-        <div>
-            <h2>Receitas cadastradas: </h2>
-            <div>
-             {receitas && receitas.map(receita=> <ItemLista receita={receita} key={receita.nome} updateAberto={props.updateAberto} /> )}
+        <div className="lista">
+            <h1 className="tituloLista">Receitas cadastradas: </h1>
+                <div className="items">
+                    {receitas && receitas.map(receita => <ItemLista receita={receita} key={receita.nome} updateAberto={props.updateAberto} /> )}
                 </div>
         </div>
     )

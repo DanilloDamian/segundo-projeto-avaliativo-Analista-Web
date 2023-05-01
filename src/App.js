@@ -31,32 +31,29 @@ const handleFiltro = valor => {
 const updateAberto = valor => {
   setAberto(valor);
 }
-const updateLista = valor =>{
-  setReceitasSelecionadas(valor);  
-}
+
 
 
 
   return (
     <div className='divPrincipal'>
-      <div>
-        <h1 className='titulo'>
+      <div className='divTitulo'>
+        <h1>
           Livro de receitas Online
         </h1>
       </div>
       {!aberto && 
       <div className='divBody'>
       
-      
-        <Filtro handleFiltro={handleFiltro} />
-        <Lista receitas={receitasSelecionadas} updateAberto={updateAberto}/>
-        <a onClick={()=>{setAberto(true); localStorage.removeItem('receitaSelecionada');}}>
-          <img src={simboloMais} alt='Simbolo de Adicionar' ></img>
+        <Filtro handleFiltro={handleFiltro}/>
+        <Lista receitas={receitasSelecionadas} updateAberto={updateAberto} />
+        <a className='link' onClick={()=>{setAberto(true); localStorage.removeItem('receitaSelecionada');}}>
+          <img className='btnMais' src={simboloMais} alt='Simbolo de Adicionar' ></img>
           </a>
           </div>
   }
       
-      { aberto && <Formulario updateAberto={updateAberto} aberto={aberto} receita={receitaParaAlterar} updateLista={updateLista} receitas={receitas}/>}
+      { aberto && <Formulario updateAberto={updateAberto} aberto={aberto} receita={receitaParaAlterar} handleFiltro={handleFiltro} receitas={receitas}/>}
     </div>
   );
 }

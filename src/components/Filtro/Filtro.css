@@ -1,0 +1,46 @@
+.filtro {
+    margin: 5px;
+    background-color: rgb(251, 255, 0,0.85);
+    border: 5px black solid;
+    border-radius: 25px;
+    border-color: black;
+    width: 20%;
+    height: 15%;
+    font-size: 1.5em
+}
+.tituloFiltro{
+    margin: 5px;
+    margin-buttom: 10px;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    text-decoration-color: black;
+    color: black;
+}
+
+.formFiltro{
+    margin: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    text-align: center;
+}
+
+.btnFiltro {
+    margin: 5px;
+    items-align: center;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    height:3em;
+    font-size:0.7em;
+    font-weight: bold
+}
+.label{
+    width:100%;
+    display:flex;   
+    justify-content:center;
+    align-items: center;
+}
