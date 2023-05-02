@@ -26,24 +26,31 @@ Criar um sistema de lista de receitas.
 3. Abra um terminal e navege até a pasta raiz do projeto.
 4. Execute o comando `npm install` e depois o comando `npm start`.
 5. Após a inicialização deverá abrir automaticamente uma pagina em seu navegador padrão com a seguinte imagem:
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_1.png"/>
 
 ## Utilização
 
 Ao clicar no botão de "+" aparecerá um pop-up de formulário para preencher todos os campos são obrigatórios (menos as restrições).
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_2.png"/>
 
 Depois de clicar em **Adicionar** o pop-up irá fechar e voltará para tela inicial com a lista atualizada de receitas.
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_3.png"/>
 
 Se desejar alterar alguma informação de receita cadastrada ou excluir, basta clicar no icone de informação que contem ao lado do nome da receita.
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_4.png"/>
 
 Ao clicar em excluir, um alerta irá confirmar sua escolha.
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_5.png"/>
 
 Para utilizar o filtro basta escolher a opção desejada no campo de filtro e clicar no botão **Filtrar**.
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_6.png"/>
 
-Para reexibir todas, basta selecionar a opção **Todas** e clicar novamente em filtrar
+Para reexibir todas, basta selecionar a opção **Todas** e clicar novamente em filtrar.
+
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_7.png"/>
