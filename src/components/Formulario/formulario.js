@@ -8,10 +8,9 @@ const Formulario = props => {
     const [receitaParaAlterar, setReceitaParaAlterar] = useState();
 
     useEffect(() => {
-        const receitaParaAlterar = JSON.parse(localStorage.getItem('receitaSelecionada'));
+        const receitaParaAlterar = JSON.parse(localStorage.getItem('receitaSelecionada'));        
         const data = localStorage.getItem('receita') ? JSON.parse(localStorage.getItem('receita')) : [];
         setForm(data);
-
         if (receitaParaAlterar) {
             setReceita(receitaParaAlterar);
             setReceitaParaAlterar(receitaParaAlterar);
@@ -75,6 +74,7 @@ const Formulario = props => {
             const receitaIndex = form.findIndex(receita => JSON.stringify(receita) === JSON.stringify(receitaParaexcluir));
             form.splice(receitaIndex, 1);
             localStorage.setItem('receita', JSON.stringify(form));
+
             localStorage.removeItem('receitaSelecionada');
             props.updateAberto(false);
             props.handleFiltro(form);
@@ -91,19 +91,19 @@ const Formulario = props => {
                 <div >
                     <label className="nomeForm">
                         Nome:
-                        <input className="input" type="text" name="nome" onChange={e => handleChange(e)} value={receita.nome} required />
+                        <input className="input" type="text" name="nome" onChange={e => handleChange(e)} value={receita.nome} required placeholder="Digite aqui o nome da receita"/>
                     </label>
                 </div>
                 <div >
                     <label className="nomeForm">
                         Ingredientes:
-                        <textarea className="textArea" name="ingredientes" onChange={e => handleChange(e)} value={receita.ingredientes} required/>                        
+                        <textarea className="textArea" name="ingredientes" onChange={e => handleChange(e)} value={receita.ingredientes} required placeholder="Digite aqui os ingredientes da receita"/>                        
                     </label>
                 </div>
                 <div >
                     <label className="nomeForm">
                         Modo de preparo:
-                        <textarea className="textArea" name="preparo" onChange={e => handleChange(e)} value={receita.preparo} required/>                       
+                        <textarea className="textArea" name="preparo" onChange={e => handleChange(e)} value={receita.preparo} required placeholder="Explique aqui como fazer o preparo da receita"/>                       
                     </label>
                 </div>
                 <div className="restricoes">
