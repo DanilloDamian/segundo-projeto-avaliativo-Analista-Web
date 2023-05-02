@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# LabReceitas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre
+Criar um sistema de lista de receitas.
 
-## Available Scripts
+## Requisitos
 
-In the project directory, you can run:
+- [X] Um título na aba do navegador, para que o usuário encontre a sua aplicação no meio das várias abas que constantemente mantém abertas.
+- [X] Um cabeçalho dentro da página, para que o usuário saiba facilmente em que página se encontra e do que se trata o conteúdo.
+- [X] Três campos de seleção no para que o usuário escolha filtrar receitas por “Sem derivados de leite”, “Sem Glúten” e “Todas”
+- [X] Um botão para filtrar as receitas.
+- [X] Um botão para adicionar uma nova receita. Quando pressionado o + a aplicação deve apresentar um pop-up para cadastro de uma nova receita, com os seguintes campos: Nome; Ingredientes; Modo de Preparo; Restrições (Lactose ou Glúten).
+- [X] O usuário poderá editar as informações da receita ou excluí-la. Quando o usuário pressionar a ! a aplicação deve apresentar um pop-up contendo as informações da receita e dois botões: Alterar ou Excluir.
+- [X] A lista deve ser salva no localStorage do navegador (incluindo as receitas que já foram excluídas), e deve ser carregada sempre que a página for reaberta.
 
-### `npm start`
+## Tecnologias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- JavaScript
+- HTML e CSS
+- React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Abrindo projeto
 
-### `npm test`
+1. Clone este repositório na sua máquina com o comando `git clone https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web.git`.
+2. Importe o projeto para a IDE de sua preferência (VSCode).
+3. Abra um terminal e navege até a pasta raiz do projeto.
+4. Execute o comando `npm install` e depois o comando `npm start`.
+5. Após a inicialização deverá abrir automaticamente uma pagina em seu navegador padrão com a seguinte imagem:
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_1.png"/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Utilização
 
-### `npm run build`
+Ao clicar no botão de "+" aparecerá um pop-up de formulário para preencher todos os campos são obrigatórios (menos as restrições).
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_2.png"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Depois de clicar em **Adicionar** o pop-up irá fechar e voltará para tela inicial com a lista atualizada de receitas.
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_3.png"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Se desejar alterar alguma informação de receita cadastrada ou excluir, basta clicar no icone de informação que contem ao lado do nome da receita.
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_4.png"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ao clicar em excluir, um alerta irá confirmar sua escolha.
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_5.png"/>
 
-### `npm run eject`
+Para utilizar o filtro basta escolher a opção desejada no campo de filtro e clicar no botão **Filtrar**.
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_6.png"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para reexibir todas, basta selecionar a opção **Todas** e clicar novamente em filtrar
