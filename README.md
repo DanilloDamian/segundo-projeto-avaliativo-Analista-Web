@@ -46,3 +46,4 @@ Para utilizar o filtro basta escolher a opção desejada no campo de filtro e cl
 <img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_6.png"/>
 
 Para reexibir todas, basta selecionar a opção **Todas** e clicar novamente em filtrar
+<img height="360em" src="https://github.com/DanilloDamian/segundo-projeto-avaliativo-Analista-Web/blob/main/public/imgs/Screenshot_7.png"/>
