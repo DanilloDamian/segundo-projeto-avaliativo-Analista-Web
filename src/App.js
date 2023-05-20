@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import simboloMais from './assets/mais.png'
-import Filtro from './components/Filtro/Filtro';
-import Formulario from './components/Formulario/Formulario';
-import Lista from './components/Lista/Lista';
+import Filtro from './components/Filtro/Filtro.js';
+import Formulario from './components/Formulario/Formulario.js';
+import Lista from './components/Lista/Lista.js';
 
 
 function App() {
